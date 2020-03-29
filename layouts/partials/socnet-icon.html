@@ -1,7 +1,10 @@
 {{ with .Site.Social.github }}<li><a href="//github.com/{{.}}" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>{{ end }}
-{{ with .Site.Social.gitlab }}<li><a href="//gitlab.com/{{.}}" target="_blank" rel="noopener" title="GitLab" class="fab fa-gitlab"></a></li>{{ end }}
 {{ with .Site.Social.stackoverflow }}<li><a href="//stackoverflow.com/users/{{.}}" target="_blank" rel="noopener" title="Stack Overflow" class="fab fa-stack-overflow"></a></li>{{ end }}
 {{ with .Site.Social.bitbucket }}<li><a href="//bitbucket.com/{{.}}" target="_blank" rel="noopener" title="Bitbucket" class="fab fa-bitbucket"></a></li>{{ end }}
+{{ with .Site.Social.medium}}<li><a href="//medium.com/@{{.}}" target="_blank" rel="noopener" title="Medium" class="fab fa-medium"></a></li>{{ end }}
+{{ with .Site.Social.linkedin }}<li><a href="//linkedin.com/in/{{.}}" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>{{ end }}
+<!-- TODO: WeChat and QQ Check 
+{{ with .Site.Social.gitlab }}<li><a href="//gitlab.com/{{.}}" target="_blank" rel="noopener" title="GitLab" class="fab fa-gitlab"></a></li>{{ end }}
 {{ with .Site.Social.jsfiddle }}<li><a href="//jsfiddle.com/{{.}}" target="_blank" rel="noopener" title="JSFiddle" class="fab fa-jsfiddle"></a></li>{{ end }}
 {{ with .Site.Social.codepen }}<li><a href="//codepen.io/{{.}}" target="_blank" rel="noopener" title="CodePen" class="fab fa-codepen"></a></li>{{ end }}
 {{ with .Site.Social.deviantart }}<li><a href="//{{.}}.deviantart.com/" target="_blank" rel="noopener" title="DeviantArt" class="fab fa-deviantart"></a></li>{{ end }}
@@ -9,8 +12,6 @@
 {{ with .Site.Social.behance }}<li><a href="//behance.net/{{.}}" target="_blank" rel="noopener" title="Behance" class="fab fa-behance"></a></li>{{ end }}
 {{ with .Site.Social.dribbble }}<li><a href="//dribbble.com/{{.}}" target="_blank" rel="noopener" title="Dribbble" class="fab fa-dribbble"></a></li>{{ end }}
 {{ with .Site.Social.wordpress }}<li><a href="//{{.}}.wordpress.com" target="_blank" rel="noopener" title="WordPress" class="fab fa-wordpress"></a></li>{{ end }}
-{{ with .Site.Social.medium}}<li><a href="//medium.com/@{{.}}" target="_blank" rel="noopener" title="Medium" class="fab fa-medium"></a></li>{{ end }}
-{{ with .Site.Social.linkedin }}<li><a href="//linkedin.com/in/{{.}}" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>{{ end }}
 {{ with .Site.Social.linkedin_company }}<li><a href="//linkedin.com/company/{{.}}" target="_blank" rel="noopener" title="LinkedIn Company" class="fab fa-linkedin"></a></li>{{ end }}
 {{ with .Site.Social.foursquare }}<li><a href="//foursquare.com/{{.}}" target="_blank" rel="noopener" title="Foursquare" class="fab fa-foursquare"></a></li>{{ end  }}
 {{ with .Site.Social.xing }}<li><a href="//xing.com/profile/{{.}}" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>{{ end }}
@@ -21,7 +22,6 @@
 {{ with .Site.Social.youtube }}<li><a href="//youtube.com/{{.}}" target="_blank" rel="noopener" title="YouTube" class="fab fa-youtube"></a></li>{{ end }}
 {{ with .Site.Social.vimeo }}<li><a href="//vimeo.com/{{.}}" target="_blank" rel="noopener" title="Vimeo" class="fab fa-vimeo"></a></li>{{ end }}
 {{ with .Site.Social.whatsapp }}<li><a href="//api.whatsapp.com/send?phone={{.}}" target="_blank" rel="noopener" title="WhatsApp" class="fab fa-whatsapp"></a></li>{{ end }}
-<!-- TODO: WeChat and QQ Check -->
 {{ with .Site.Social.wechat }}<li><a href="weixin://contacts/profile/{{.}}" target="_blank" rel="noopener" title="WeChat" class="fab fa-weixin"></a></li>{{ end }}
 {{ with .Site.Social.qq }}<li><a href="//wpa.qq.com/msgrd?v=3&amp;uin={{.}}&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener" title="QQ" class="fab fa-qq"></a></li>{{ end }}
 {{ with .Site.Social.instagram }}<li><a href="//instagram.com/{{.}}" target="_blank" rel="noopener" title="Instagram" class="fab fa-instagram"></a></li>{{ end }}
@@ -38,3 +38,4 @@
 {{ with .Site.Social.keybase }}<li><a href="//keybase.io/{{.}}" target="_blank" rel="noopener" title="keybase" class="fab fa-keybase"></a></li>{{ end }}
 {{ with .Site.Social.mastodon }}<li><a href="//{{.}}" target="_blank" rel="noopener" title="mastodon" class="fab fa-mastodon"></a></li>{{ end }}
 {{ with .Site.Social.email }}<li><a href="mailto:{{.}}" target="_blank" title="Email" class="far fa-envelope"></a></li>{{ end }}
+-->

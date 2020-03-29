@@ -7,7 +7,7 @@
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     {{ end }}
     {{ with .Description }}
-        <p>{{ . }}</p>
+        <h6>{{ . }}</h6>
     {{ end }}
 </div>
   <div class="meta">
@@ -15,6 +15,12 @@
       {{ default (i18n "date_format") | .Date.Format }}
     </time>
     <span class="author">{{ .Params.author }}</span>
+    <img class="authorImage" src={{ .Params.authorImage }} alt="" />
+
+    <!-- <a href="/authors" class="author">
+      <span class="name">{{ .Params.author }}</span>
+      <img src={{ .Params.authorImage }} alt="" />
+    </a> -->
     {{ if .Site.Params.ReadingTime }}
       <p>{{ i18n "postreadingtime" .ReadingTime }}</p>
     {{ end }}

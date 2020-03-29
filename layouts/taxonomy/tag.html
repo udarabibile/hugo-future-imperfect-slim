@@ -6,10 +6,16 @@
     <div id="wrapper">
       {{ partial "site-intro" . }}
       <main id="site-main">
-        <h1>{{ .Title }}</h1>
+        <!-- <h1>[TAG] {{ .Title }}</h1> -->
+        <article class="post">
+          <h1 style="text-align:left;float:left;"><i class='fa fa-tag'></i> {{ .Title }}</h1>
+          <h6 style="text-align:right;float:right;">TAG</h6>
+          <hr style="clear:both;"/>
+        </article>
+
         {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
         {{ range $paginator.Pages }}
-            {{ .Render "content-list" }}
+            {{ .Render "content-list-light" }}
         {{ end }}
         {{ partial "pagination" . }}
       </main>

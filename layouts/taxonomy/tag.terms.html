@@ -6,6 +6,7 @@
     <div id="wrapper">
       {{ partial "site-intro" . }}
       <main id="site-main">
+        <!--
         {{ if .Site.Params.tagsByCount }}
           {{ $.Scratch.Set "tags" .Data.Terms.ByCount }}
         {{ else }}
@@ -30,6 +31,49 @@
             </li>
           {{ end }}
         </ul>
+        -->
+        <article class="post">
+          <header>
+            <div class="title">
+              {{ if $.Scratch.Get "h1" }}
+                <h1><a href="{{ .RelPermalink }}">{{ i18n .Data.Plural }}</a></h1>
+                {{ $.Scratch.Set "h1" false }}
+              {{ else }}
+                <h2><a href="{{ .RelPermalink }}">{{ i18n .Data.Plural }}</a></h2>
+              {{ end }}
+              <!-- <p>SELECT BY INTERESTED TOPIC:</p> -->
+            </div>
+          </header>
+
+          <div id="content">
+            <ul class="posts" style="list-style: none; display: inline-block;">
+              {{ $data := .Data }}
+              {{ range $key, $value := $.Scratch.Get "tags" }}
+                <li style="display: inline;">
+                  <article>
+                    <header>
+                      {{ if ne $value.Name "" }}
+                        <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:60em;" class="button large fit icon solid">{{ $value.Name }}<span style="float:right;">{{ $value.Count }}</span></a>
+                      {{ else }}
+                        {{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span>
+                      {{ end }}
+                    </header>
+                    <!-- <header>
+                      {{ if ne $value.Name "" }}
+                      <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:40%; margin-left: 5%; float: left;" class="button large fit icon solid">
+                        {{ $value.Name }} <span style="float:right;">{{ $value.Count }}</span>
+                      </a>
+                      {{ else }}
+                        {{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span>
+                      {{ end }}
+                    </header> -->
+                  </article>
+                </li>
+              {{ end }}
+            </ul>
+            
+          </div>
+        </article>
       </main>
       {{ $.Scratch.Set "showCategories" false }}
       {{ partial "site-sidebar" . }}

@@ -4,12 +4,12 @@
   <body>
     {{ partial "site-header" . }}
     <div id="wrapper">
-      {{ partial "site-intro" . }}
-      <main id="site-main">
+      <!-- {{ partial "site-intro" . }} -->
+      <main id="site-main" style="grid-column: 1 / -1;">
         {{ .Render "content-single"}}
       </main>
-      {{ partial "site-sidebar" . }}
-      {{ partial "site-footer" . }}
+      <!-- {{ partial "site-sidebar" . }} -->
+      <!-- {{ partial "site-footer" . }} -->
       {{ partial "scripts" . }}
     </div>
   </body>

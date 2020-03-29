@@ -1,4 +1,4 @@
-<!doctype html>
+c<!doctype html>
 <html lang="{{ .Page.Language | default "en" }}">
   {{ partial "head" . }}
   <body>
@@ -6,30 +6,58 @@
     <div id="wrapper">
       {{ partial "site-intro" . }}
       <main id="site-main">
+        <!--
         {{ if .Site.Params.categoriesByCount }}
           {{ $.Scratch.Set "categories" .Data.Terms.ByCount }}
         {{ else }}
           {{ $.Scratch.Set "categories" .Data.Terms.Alphabetical }}
         {{ end }}
-        <ul class="posts">
+        -->
+
+        <article class="post">
           <header>
-            <h1>{{ i18n .Data.Plural }}</h1>
+            <div class="title">
+              {{ if $.Scratch.Get "h1" }}
+                <h1><a href="{{ .RelPermalink }}">{{ i18n .Data.Plural }}</a></h1>
+                {{ $.Scratch.Set "h1" false }}
+              {{ else }}
+                <h2><a href="{{ .RelPermalink }}">{{ i18n .Data.Plural }}</a></h2>
+              {{ end }}
+              <!-- <h6>SELECT BY INTERESTED Category:</h6> -->
+            </div>
           </header>
-          {{ $data := .Data }}
-          {{ range $key, $value := $.Scratch.Get "categories" }}
-            <li>
-              <article>
-                <header>
+
+
+          <div id="content">
+            <ul class="posts" style="list-style: none;">
+              {{ $data := .Data }}
+              {{ range $key, $value := $.Scratch.Get "categories" }}
+                
+
+              <li>
+                <article>
+                  <header>
+                    {{ if ne $value.Name "" }}
+                      <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:100%;" class="button large fit icon solid">{{ $value.Name }}<span style="float:right;">{{ $value.Count }}</span></a>
+                    {{ else }}
+                      <a style="width:100%;" class="button large fit icon solid">{{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span></a>
+                    {{ end }}
+                  </header>
+                </article>
+              </li>
+               
+                <!-- <li style="display: inline;">
                   {{ if ne $value.Name "" }}
-                    <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}">{{ $value.Name }}<span style="float:right;">{{ $value.Count }}</span></a>
+                  <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:30%; margin: 1%; float: left;" class="button large fit icon solid">{{ $value.Name }}<span style="float: right;">{{ $value.Count }}</span></a>
                   {{ else }}
-                    {{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span>
+                    <a class="button large fit icon solid" style="width:30%; margin: 1%">{{ i18n "uncategorized" }}<span style="float: right;">{{ $value.Count }}</span></a>
                   {{ end }}
-                </header>
-              </article>
-            </li>
-          {{ end }}
-        </ul>
+                </li> -->
+              {{ end }}
+            </ul>
+          </div>
+          <div style="clear:both"></div>
+        </article>
       </main>
       {{ $.Scratch.Set "showCategories" false }}
       {{ partial "site-sidebar" . }}

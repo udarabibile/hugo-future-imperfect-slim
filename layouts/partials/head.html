@@ -18,6 +18,7 @@
         {{- $main := resources.Get "scss/main.scss" | resources.ToCSS $mainCSSOptions | resources.Fingerprint -}}
         <link rel="stylesheet" href="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}">
         <link rel="stylesheet" href="{{ "css/add-on.css" | relURL }}">
+        <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ "css/dark-theme.css" | relURL }}">
       {{- else }}
         <link rel="stylesheet" href="{{ . | relURL }}">
       {{- end -}}
@@ -37,6 +38,7 @@
         {{- $css := $cssSlice | resources.Concat "css/bundle.css" | minify | fingerprint -}}
         <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
         <link rel="stylesheet" href="{{ "css/add-on.css" | relURL }}">
+        <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ "css/dark-theme.css" | relURL }}">
       {{- else }}
         <link rel="stylesheet" href="{{ . | relURL }}">
       {{- end -}}

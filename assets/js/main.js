@@ -40,3 +40,29 @@ $('#back-to-top').click(function() {
   $('html, body').animate({scrollTop: 0}, 1000);
   return false;
 });
+
+// BIBI: DARK TOGGLE
+var toggle = document.getElementById("dark-mode-toggle");
+var darkTheme = document.getElementById("dark-mode-theme");
+
+toggle.addEventListener("click", () => {
+    if (toggle.className === "fa fa-moon fa-2x") {
+        setTheme("dark");
+    } else if (toggle.className === "fa fa-sun fa-2x") {
+        setTheme("light");
+    }
+});
+
+function setTheme(mode) {
+    localStorage.setItem("dark-mode-storage", mode);
+    if (mode === "dark") {
+        darkTheme.disabled = false;
+        toggle.className = "fa fa-sun fa-2x";
+    } else if (mode === "light") {
+        darkTheme.disabled = true;
+        toggle.className = "fa fa-moon fa-2x";
+    }
+}
+
+var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+setTheme(savedTheme);
