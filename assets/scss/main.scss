@@ -1081,7 +1081,7 @@ textarea {
 
       .authorImage {
         // border-radius: 100%;
-        display: block;
+        // display: block;
         width: 4em;
       }
      }
@@ -1102,6 +1102,14 @@ textarea {
      font-weight: 400;
      letter-spacing: 0.1em;
      margin: -0.625em 0 1.7em 0;
+   }
+   li, figcaption {
+    text-align: justify;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: -0.625em 0 1.7em 0;
    }
    a {
      &.image {

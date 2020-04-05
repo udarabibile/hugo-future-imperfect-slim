@@ -46,31 +46,49 @@
           </header>
 
           <div id="content">
-            <ul class="posts" style="list-style: none; display: inline-block;">
+            <ul class="posts" style="list-style: none; display: inline-block; columns: 3;">
+              {{ $data := .Data }}
+              {{ range $key, $value := $.Scratch.Get "tags" }}
+              <li style="display: inline;">
+                <article>
+                  <header>
+                    {{ if ne $value.Name "" }}
+                      <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:100%" class="button large fit icon solid">
+                        {{ $value.Name }} ({{ $value.Count }})
+                      </a>
+                    {{ else }}
+                      <a style="width:100%;" class="button large fit icon solid">{{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span></a>
+                    {{ end }}
+                  </header>
+                </article>
+              </li>
+              {{ end }}
+            </ul>
+
+            <!-- 
+                display: flex; flex-direction: column; flex-wrap: wrap;
+             -->
+
+            <!--
+            <ul class="posts" style="list-style: none; display: inline-block; columns: 3;">
               {{ $data := .Data }}
               {{ range $key, $value := $.Scratch.Get "tags" }}
                 <li style="display: inline;">
                   <article>
                     <header>
                       {{ if ne $value.Name "" }}
-                        <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:60em;" class="button large fit icon solid">{{ $value.Name }}<span style="float:right;">{{ $value.Count }}</span></a>
+                        <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:30em;" class="button large fit icon solid">
+                          {{ $value.Name }} ({{ $value.Count }})
+                        </a>
                       {{ else }}
-                        {{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span>
+                        {{ i18n "uncategorized" }} ({{ $value.Count }})
                       {{ end }}
                     </header>
-                    <!-- <header>
-                      {{ if ne $value.Name "" }}
-                      <a href="{{ printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}" style="width:40%; margin-left: 5%; float: left;" class="button large fit icon solid">
-                        {{ $value.Name }} <span style="float:right;">{{ $value.Count }}</span>
-                      </a>
-                      {{ else }}
-                        {{ i18n "uncategorized" }}<span style="float:right;">{{ $value.Count }}</span>
-                      {{ end }}
-                    </header> -->
                   </article>
                 </li>
               {{ end }}
             </ul>
+            -->
             
           </div>
         </article>
