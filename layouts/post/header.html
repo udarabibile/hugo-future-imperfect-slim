@@ -14,8 +14,13 @@
     <time class="published" datetime="{{ .Date }}">
       {{ default (i18n "date_format") | .Date.Format }}
     </time>
+    <!-- <a style="float: right; clear: right;">
+      <img class="authorImage" src={{ .Params.authorImage }} alt="" />
+    </a> -->
+
     <span class="author">{{ .Params.author }}</span>
-    <img class="authorImage" src={{ .Params.authorImage }} alt="" />
+    <a href="1"><img style="width: 5em;" src={{ .Params.authorImage }} ></img></a>
+
     <br/>
 
     <!-- <a href="/authors" class="author">
