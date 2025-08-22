@@ -1,7 +1,5 @@
 {{ $permalink := $.Scratch.Get "Permalink" }}
 {{ $title := $.Scratch.Get "Title" }}
-{{ $author := $.Scratch.Get "Author" }}
-{{ $tags := $.Scratch.Get "Tags" }}
 {{ range .Site.Params.socialShare }}
   {{ if eq . "twitter" }}
     <!-- TODO: Add Hashtags &amp;hashtags= -->
@@ -25,7 +23,7 @@
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   {{ else if eq . "email" }}
-        <a href="mailto:?subject=Check out this post by {{ $author }}&amp;body={{ $permalink }}" target="_blank" class="share-btn email" data-proofer-ignore>
+        <a href="" target="_blank" class="share-btn email" data-proofer-ignore>
           <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
         </a>
   {{ end }}
