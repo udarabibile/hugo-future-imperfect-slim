@@ -1856,6 +1856,56 @@ textarea {
   clear: both;
 }
 
+:target {
+  scroll-margin-top: 80px; /* adjust for your header height */
+}
+
+#site-content {
+  display: block;
+  overflow: visible;
+  position: sticky;
+  top: 40px;
+  z-index: 20;
+}
+
+@media (max-width: 1023px) {
+  #site-content {
+    display: none !important;
+  }
+}
+
+/* Floating Table of Contents */
+.toc {
+  position: sticky;
+  top: 100px; /* adjust for your header height */
+  max-width: 300px;
+  margin: 0.5rem 0 2rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 10;
+  font-family: 'Raleway', Helvetica, sans-serif;
+  font-size: .8em;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+.toc li {
+  margin-bottom: 0.5rem;
+}
+.toc a {
+  text-decoration: none;
+  color: #222 !important;
+  transition: color 0.2s;
+}
+.toc a:hover {
+  color: darken($accent-color, 10%);
+}
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -1931,3 +1981,4 @@ textarea {
         page-break-after: avoid;
     }
 }
+

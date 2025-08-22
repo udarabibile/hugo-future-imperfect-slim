@@ -1,0 +1,28 @@
+<section id="site-content">
+  {{ if .IsPage }}
+  {{/* Table of Contents: Extract h1, h2, h3, h4 headers from post content */}}
+  {{ $re := `<h([1-4])[^>]*>(.*?)</h[1-4]>` }}
+    {{ $matches := findRE $re .Content }}
+    {{ if gt (len $matches) 0 }}
+
+    <h4>{{ i18n "table_of_content" }}</h4>
+    <nav class="toc">
+      <section id="categories">
+        <ul>
+          {{ range $matches }}
+            {{ $heading := . }}
+            {{ $level := replaceRE `<h([1-4])[^>]*>.*</h[1-4]>` "$1" $heading }}
+            {{ $margin := mul (sub (int $level) 1) 1.5 }}
+            {{ $text := replaceRE `<.*?>` "" $heading | htmlUnescape }}
+            {{ $id := replaceRE `<h[1-4][^>]*>(.*?)</h[1-4]>` "$1" $heading | urlize }}
+            <li style="margin-left: {{ printf "%g" $margin }}em;">
+              <a href="#{{ $id }}" style="border-bottom: none !important; text-decoration: none !important;">{{ $text }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    </nav>
+
+    {{ end }}
+    {{ end }}
+</section>
